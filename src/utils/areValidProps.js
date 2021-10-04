@@ -1,8 +1,8 @@
 /**
  * Validation for data sent in HTTP requests
  * @param {String} objName- Name of the object. Referenced in error message.
- * @param {Array} props- Array of keys. Each key must exist. 
- * @returns an object with a boolean property. If false, object has message 
+ * @param {Object} props- Object of keys. Each key's value must be truthy.
+ * @returns an object with a boolean property. If false, object has message
  * property to be passed to error handler.
  */
 
