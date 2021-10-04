@@ -7,7 +7,6 @@ node_modules/
 
 # testing
 coverage/
-test/
 .qualified-attach.json
 .attachignore
 
