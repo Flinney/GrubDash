@@ -91,11 +91,14 @@ const read = (req, res, _next) => {
 //update
 const update = (req, res, _next) => {
   const { data: { name, description, price, image_url } = {} } = req.body;
-  res.locals.dish.name = name;
-  res.locals.dish.description = description;
-  res.locals.dish.price = price;
-  res.locals.dish.image_url = image_url;
-  res.json({ data: res.locals.dish });
+  const dish = {
+    ...res.locals.dish,
+    name,
+    description,
+    price,
+    image_url,
+  };
+  res.json({ data: dish });
 };
 
 module.exports = {

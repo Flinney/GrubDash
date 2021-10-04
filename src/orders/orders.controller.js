@@ -133,11 +133,13 @@ const read = (req, res, _next) => {
 //update existing order
 const update = (req, res, _next) => {
   const { data: { deliverTo, mobileNumber, status, dishes } = {} } = req.body;
-  const order = res.locals.order;
-  order.deliverTo = deliverTo;
-  order.mobileNumber = mobileNumber;
-  order.status = status;
-  order.dishes = dishes;
+  const order = {
+    ...res.locals.order,
+    deliverTo,
+    mobileNumber,
+    status,
+    dishes,
+  };
   res.json({ data: order });
 };
 
@@ -153,5 +155,5 @@ module.exports = {
   create: [isValidOrder, create],
   read: [isValidId, read],
   update: [isValidOrder, isValidStatus, isValidId, doIdsMatch, update],
-  destroy: [isValidId, doIdsMatch, isOrderPending, destroy],
+  destroy: [isValidId, isOrderPending, destroy],
 };
