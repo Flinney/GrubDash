@@ -64,12 +64,12 @@ const doIdsMatch = (req, res, next) => {
   next();
 };
 
-//list
+//list all dishes
 const list = (req, res, _next) => {
   res.json({ data: dishes });
 };
 
-//create
+//create new dish
 const create = (req, res, _next) => {
   const { data: { name, description, price, image_url } = {} } = req.body;
   const newDish = {
@@ -83,12 +83,12 @@ const create = (req, res, _next) => {
   res.status(201).send({ data: newDish });
 };
 
-//read
+//read existing dish
 const read = (req, res, _next) => {
   res.json({ data: res.locals.dish });
 };
 
-//update
+//update existing dish
 const update = (req, res, _next) => {
   const { data: { name, description, price, image_url } = {} } = req.body;
   const dish = {

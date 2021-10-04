@@ -8,12 +8,12 @@ const nextId = require("../utils/nextId");
 
 //helper functions
 const areValidProps = require("../utils/areValidProps");
-const { is } = require("express/lib/request");
 
 function isValidArray(dishes) {
   return Array.isArray(dishes) && dishes.length > 0;
 }
 
+//Tests looking for index number in message, not place of dish on a list.
 function hasQuantity(dishes) {
   for (let i = 0; i < dishes.length; i++) {
     const dish = dishes[i];
